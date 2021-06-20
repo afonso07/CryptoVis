@@ -1,0 +1,20 @@
+#This is the official base image
+FROM node:13.12.0-alpine
+
+WORKDIR /app
+
+ENV PATH /app/node_modules/.bin:$PATH
+
+COPY package*.json ./
+COPY tsconfig.json ./
+RUN npm install --silent 
+
+# copy the app out
+COPY . ./
+RUN ls -a
+
+ENV PORT=8080
+EXPOSE 8080
+
+#Run this in the container
+CMD [ "npm" , "start"]

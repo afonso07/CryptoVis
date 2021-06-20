@@ -1,0 +1,9 @@
+node_modules
+build
+.dockerignore
+Dockerfile.dev
+Dockerfile
+dist
+#We are ignoring node_modules as we are going to create this
+#"This will speed up the Docker build process as our local dependencies inside the “node_modules” directory will not be sent to the Docker daemon."
+#https://mherman.org/blog/dockerizing-a-react-app/
